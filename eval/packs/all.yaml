@@ -1,0 +1,16 @@
+name: all
+version: 1.0.0
+description: >
+  Routes every eval document to its category pack by document type. Demonstrates `route` over
+  the two eval packs; it is not itself scored against ground truth (see eval/score.ts) — run it
+  with the CLI to see routing decisions across the whole eval/documents tree in one command.
+
+questions:
+  doc_type:
+    use: std#doc_type
+
+route:
+  on: doc_type
+  cases:
+    form: ./government-forms.yaml
+    report: ./arxiv-papers.yaml

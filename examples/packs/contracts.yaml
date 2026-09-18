@@ -1,0 +1,32 @@
+name: contracts
+version: 1.0.0
+description: First-pass review of commercial agreements.
+
+questions:
+  doc_type:
+    use: std#doc_type
+
+  is_signed:
+    noul: The parties have signed this agreement.
+
+  governing_law:
+    ask: Which jurisdiction's law governs this agreement?
+    choice:
+      new_york: Governed by the laws of the State of New York
+      delaware: Governed by the laws of the State of Delaware
+      california: Governed by the laws of the State of California
+      other: Another jurisdiction, or this page does not state a governing law
+    fallback: other
+
+  termination_for_convenience:
+    noul: Either party may terminate this agreement for convenience, without cause, by giving notice.
+
+  liability_capped:
+    noul: This page limits a party's total liability to a stated amount or to the fees paid.
+
+  customer_risk:
+    ask: How much commercial risk do the terms on this page place on the paying customer?
+    score:
+      - Low. Balanced, standard terms with capped liability and an easy exit
+      - Medium. Some one-sided terms, such as automatic renewal or long notice periods
+      - High. Unlimited liability, indemnification duties, or payment owed after the customer exits

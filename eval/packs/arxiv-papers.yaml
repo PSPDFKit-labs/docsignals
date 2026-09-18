@@ -1,0 +1,24 @@
+name: arxiv_papers
+version: 2.0.0
+description: >
+  Calibration questions for eval/documents/arxiv-papers, about the structure of a research
+  paper. See eval/ground-truth/arxiv-papers.json for the expected answer on every
+  (document, question) pair.
+
+questions:
+  has_table:
+    noul: This page contains a table of rows and columns.
+    no: A chart or a plot, also when the page describes its data as a table
+
+  has_figure:
+    noul: This page contains a figure, plot, chart, or photograph.
+
+  has_equation:
+    noul: This page contains a mathematical equation displayed on its own line, set off from the body text.
+    no: Mathematics inside a sentence or inside a table
+
+  doc_type:
+    use: std#doc_type
+
+  text_quality:
+    use: std#text_quality

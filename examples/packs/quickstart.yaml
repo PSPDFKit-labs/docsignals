@@ -1,0 +1,16 @@
+name: quickstart
+version: 1.0.0
+description: Two questions, to show the shape of a pack. See contracts.yaml for a fuller one.
+
+questions:
+  governing_law:
+    ask: Which jurisdiction's law governs this agreement?
+    choice:
+      new_york: Governed by the laws of the State of New York
+      delaware: Governed by the laws of the State of Delaware
+      california: Governed by the laws of the State of California
+      other: Another jurisdiction, or this page does not state a governing law
+    fallback: other
+
+  termination_for_convenience:
+    noul: Either party may terminate this agreement for convenience, without cause, by giving notice.

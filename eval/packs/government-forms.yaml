@@ -1,0 +1,37 @@
+name: government_forms
+version: 2.0.0
+description: >
+  Calibration questions for eval/documents/government-forms. Every answer is in the printed text
+  of the form. No question depends on a filled checkbox, because DWS does not report the state
+  of a checkbox. See eval/ground-truth/government-forms.json for the expected answers.
+
+questions:
+  asks_about_medicaid:
+    noul: This page asks whether Medicaid covers the applicant's nursing home costs.
+    yes: A question to the applicant that names Medicaid
+    no: The page mentions a nursing home or medical expenses, but does not ask about Medicaid
+
+  asks_date_of_death:
+    noul: This page asks for the date of death of a veteran.
+
+  asks_passport_number:
+    noul: This page asks for a passport number or an alien registration card number.
+
+  asks_branch_of_service:
+    noul: This page asks for the branch of military service.
+
+  issuing_agency:
+    ask: Which federal agency issued this form?
+    choice:
+      va: U.S. Department of Veterans Affairs
+      irs: Internal Revenue Service, part of the Department of the Treasury
+      other: Neither of the above
+    fallback: other
+
+  doc_type:
+    use: std#doc_type
+
+extract:
+  respondent_burden:
+    keys: [Respondent Burden]
+    verify: true

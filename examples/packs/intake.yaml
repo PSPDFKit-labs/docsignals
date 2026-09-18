@@ -1,0 +1,15 @@
+# Sorts a mixed folder by document type, then asks each type its own questions.
+# Columns from a routed pack are prefixed with its name: invoices.total_due, contracts.governing_law.
+name: intake
+version: 1.0.0
+description: Routes invoices and contracts to their own packs.
+
+questions:
+  doc_type:
+    use: std#doc_type
+
+route:
+  on: doc_type
+  cases:
+    invoice: ./invoices.yaml
+    contract: ./contracts.yaml

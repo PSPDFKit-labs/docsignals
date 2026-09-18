@@ -1,0 +1,21 @@
+name: invoices
+version: 1.0.0
+description: Accounts-payable intake. Pulls the fields a payment run needs and checks them.
+
+questions:
+  doc_type:
+    use: std#doc_type
+
+  is_overdue:
+    noul: This invoice is marked past due or overdue, or carries a payment reminder or a late fee.
+
+extract:
+  invoice_number:
+    keys: [Invoice Number, Invoice No, Invoice '#']
+    verify: true
+  due_date:
+    keys: [Due Date, Payment Due]
+    verify: true
+  total_due:
+    keys: [Total Due, Amount Due, Balance Due]
+    verify: true

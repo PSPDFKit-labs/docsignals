@@ -1,0 +1,42 @@
+# The docsignals standard library: general questions that apply to most documents.
+# Reference one from your own pack with `use: std#<name>`.
+#
+# A question's wording is its behaviour. Any change to wording is a version bump,
+# so results recorded against std@1.0.0 stay comparable.
+name: std
+version: 1.0.0
+description: General-purpose questions for any document.
+
+questions:
+  doc_type:
+    ask: What kind of document is this page from?
+    choice:
+      contract: A legal agreement between parties, including NDAs, service agreements, and leases
+      invoice: A bill requesting payment, listing amounts due
+      form: A form with labelled fields to fill in, such as an application or a tax form
+      correspondence: A letter, email, or memo addressed to a person or organisation
+      report: A report, analysis, presentation, or whitepaper
+      other: None of the above, or too little text to tell
+    fallback: other
+
+  is_signed:
+    noul: This page shows a completed signature.
+    yes: A signed name, "/s/", or an e-signature stamp
+    no: An empty signature line, or a printed name with no signature
+
+  has_signature_block:
+    noul: This page has a signature block, signed or unsigned, with a place for a party to sign.
+
+  has_personal_data:
+    noul: This page contains personal data about an individual, such as a home address, date of birth, government ID number, or bank account number.
+
+  has_table:
+    noul: This page contains a table of rows and columns.
+
+  text_quality:
+    ask: How readable is the extracted text of this page?
+    score:
+      - Garbled, fragmentary, or mostly missing text
+      - Readable, with some recognition errors or broken words
+      - Clean, complete text
+    reduce: min

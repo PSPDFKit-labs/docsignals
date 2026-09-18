@@ -1,0 +1,111 @@
+{
+  "pack": "government_forms@2.0.0",
+  "note": "Expected answer for every (document, question) pair, under `answers`. Every fact is in the printed text of the form: DWS does not report whether a checkbox is ticked, so no question depends on one. The first three noul statements are each true on exactly one document; asks_branch_of_service is true on both VA forms. `issuing_agency` and `doc_type` are choice questions, scored by label. `extracted.respondent_burden` is the pack's one extract field; its `expected: null` case on the IRS form exercises the documented 'never guesses a value' behaviour.",
+  "documents": {
+    "va-21p-527ez-pension-application.pdf": {
+      "source_form": "VA Form 21P-527EZ, Application for Veterans Pension",
+      "answers": {
+        "asks_about_medicaid": {
+          "expected": true,
+          "evidence": "Page 8, question 4D: 'Does Medicaid cover all or part of your nursing home costs or have you applied for Medicaid?'"
+        },
+        "asks_date_of_death": {
+          "expected": false,
+          "evidence": "The applicant is the veteran. The phrase 'date of death' is not in the document."
+        },
+        "asks_passport_number": {
+          "expected": false,
+          "evidence": "The word 'passport' is not in the document."
+        },
+        "asks_branch_of_service": {
+          "expected": true,
+          "evidence": "Page 8, item 3E: 'Branch of service'."
+        },
+        "issuing_agency": {
+          "expected": "va",
+          "evidence": "Header reads 'U.S. Department of Veterans Affairs'."
+        },
+        "doc_type": {
+          "expected": "form",
+          "evidence": "A government application form with labelled fields to fill in."
+        }
+      },
+      "extracted": {
+        "respondent_burden": {
+          "expected": "30 minutes",
+          "evidence": "Page 8 reads 'Respondent Burden: 30 minutes' next to the OMB control number."
+        }
+      }
+    },
+    "va-21p-534ez-dic-survivors-application.pdf": {
+      "source_form": "VA Form 21P-534EZ, Application for D.I.C., Survivors Pension, and/or Accrued Benefits",
+      "answers": {
+        "asks_about_medicaid": {
+          "expected": false,
+          "evidence": "The form asks about nursing home care, but the word 'Medicaid' is not in the document."
+        },
+        "asks_date_of_death": {
+          "expected": true,
+          "evidence": "Page 10, item 1H: 'Veteran's date of death'."
+        },
+        "asks_passport_number": {
+          "expected": false,
+          "evidence": "The word 'passport' is not in the document."
+        },
+        "asks_branch_of_service": {
+          "expected": true,
+          "evidence": "Page 11: 'Branch of service'."
+        },
+        "issuing_agency": {
+          "expected": "va",
+          "evidence": "Header reads 'U.S. Department of Veterans Affairs'."
+        },
+        "doc_type": {
+          "expected": "form",
+          "evidence": "A government application form with labelled fields to fill in."
+        }
+      },
+      "extracted": {
+        "respondent_burden": {
+          "expected": "40 minutes",
+          "evidence": "Page 10 reads 'Respondent Burden: 40 minutes' next to the OMB control number."
+        }
+      }
+    },
+    "irs-2063-departing-alien-statement.pdf": {
+      "source_form": "IRS Form 2063, U.S. Departing Alien Income Tax Statement",
+      "answers": {
+        "asks_about_medicaid": {
+          "expected": false,
+          "evidence": "The word 'Medicaid' is not in the document."
+        },
+        "asks_date_of_death": {
+          "expected": false,
+          "evidence": "The phrase 'date of death' is not in the document."
+        },
+        "asks_passport_number": {
+          "expected": true,
+          "evidence": "Page 1, item 7: 'Passport or alien registration card number'."
+        },
+        "asks_branch_of_service": {
+          "expected": false,
+          "evidence": "The phrase 'branch of service' is not in the document."
+        },
+        "issuing_agency": {
+          "expected": "irs",
+          "evidence": "Header reads 'Department of the Treasury, Internal Revenue Service'."
+        },
+        "doc_type": {
+          "expected": "form",
+          "evidence": "A government tax form with labelled fields to fill in."
+        }
+      },
+      "extracted": {
+        "respondent_burden": {
+          "expected": null,
+          "evidence": "This form has no 'Respondent Burden' line. docsignals never guesses a value, so this comes back null."
+        }
+      }
+    }
+  }
+}

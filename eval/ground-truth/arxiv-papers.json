@@ -1,0 +1,90 @@
+{
+  "pack": "arxiv_papers@2.0.0",
+  "note": "Expected answer for every (document, question) pair. has_table, has_figure, and has_equation are document-level facts: true if true on any page, which matches the noul default `reduce: max`. Each fact was confirmed by looking at every page of the PDF. doc_type is expected to be 'report' on every document, as a sanity check. text_quality is in the pack to exercise the score type, but it is not scored: no level is defensible as ground truth.",
+  "documents": {
+    "faster-lossy-generalized-flow.pdf": {
+      "source": "arXiv:0803.0988v2, pages 1 to 4 of 46",
+      "answers": {
+        "has_table": {
+          "expected": true,
+          "evidence": "Page 2 has a ruled table that compares algorithm running times."
+        },
+        "has_figure": {
+          "expected": false,
+          "evidence": "No figure on pages 1 to 4."
+        },
+        "has_equation": {
+          "expected": true,
+          "evidence": "Page 3 has the displayed inequality ||x - M^-1 b||_M <= epsilon ||M^-1 b||_M."
+        },
+        "doc_type": {
+          "expected": "report",
+          "evidence": "An arXiv research paper."
+        }
+      }
+    },
+    "high-temperature-superconductivity.pdf": {
+      "source": "arXiv:0802.1216v1",
+      "answers": {
+        "has_table": {
+          "expected": false,
+          "evidence": "No table. The page 3 figure is three plots."
+        },
+        "has_figure": {
+          "expected": true,
+          "evidence": "Page 3, FIG. 1: three Fermi-surface plots, (a), (b), and (c)."
+        },
+        "has_equation": {
+          "expected": false,
+          "evidence": "No displayed equation. The mathematics is inline."
+        },
+        "doc_type": {
+          "expected": "report",
+          "evidence": "An arXiv research paper."
+        }
+      }
+    },
+    "quantum-entanglement-density-matrices.pdf": {
+      "source": "arXiv:0710.4061v3",
+      "answers": {
+        "has_table": {
+          "expected": false,
+          "evidence": "No table."
+        },
+        "has_figure": {
+          "expected": false,
+          "evidence": "No figure."
+        },
+        "has_equation": {
+          "expected": true,
+          "evidence": "Numbered displayed equations (1) to (11), on pages 1 to 4."
+        },
+        "doc_type": {
+          "expected": "report",
+          "evidence": "An arXiv research paper."
+        }
+      }
+    },
+    "particle-motion-granular-compaction.pdf": {
+      "source": "arXiv:0802.0485v1",
+      "answers": {
+        "has_table": {
+          "expected": false,
+          "evidence": "No table."
+        },
+        "has_figure": {
+          "expected": true,
+          "evidence": "FIG. 1 to FIG. 6, on pages 2 to 4: a photograph of the apparatus, and plots."
+        },
+        "has_equation": {
+          "expected": false,
+          "evidence": "No displayed equation. The fit on page 2 is inline."
+        },
+        "doc_type": {
+          "expected": "report",
+          "evidence": "An arXiv research paper."
+        }
+      }
+    }
+  }
+}

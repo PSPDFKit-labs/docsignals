@@ -30,9 +30,9 @@
          ══════════════════════════════════════════════════════════════════════════════
 ```
 
-Ask typed questions of your documents. Get structured signals for agentic workflows, with the page each answer came from.
+Ask typed questions about your docs, and get structured signals for agentic workflows, with citations.
 
-> **⚡ Try it in a minute, with no API keys.** Five example documents ship with their extraction already recorded. [Clone, install, run](#-try-it-in-a-minute-with-no-api-keys).
+> **⚡ Try it in a minute, with no API keys.** Replay five pre-recorded examples.. [Clone, install, run](#-try-it-in-a-minute-with-no-api-keys).
 
 > **🤝 Contributions welcome!** Have a question that every contract, invoice, or claim form should answer? We'd love it in the standard pack. [See how to contribute](#-contributing) or just open a PR.
 
@@ -45,12 +45,11 @@ Ask typed questions of your documents. Get structured signals for agentic workfl
 
 ![docsignals demo](assets/docsignals-demo.gif)
 
-## The whole idea, in one screen
+## In a Nutshell
 
-You write the questions once, in a YAML **pack**. docsignals reads each document with
+Write the questions once, in a YAML **pack**. docsignals reads each document with
 [Nutrient DWS Data Extraction](https://www.nutrient.io/api/), asks every question of every page with
-[Jev](https://typesafe.ai/), and gives you one row per document: the answer, how sure it is, and the
-page it came from.
+[Jev](https://typesafe.ai/), and gives you one row per document: the answer, its confidence score, and the citation.
 
 ```yaml
 # examples/packs/quickstart.yaml
@@ -160,8 +159,7 @@ flowchart LR
    elements again and asks which one supports the answer. That is one more request per
    deciding page, whatever the number of blocks. See [Block provenance](docs/reducers.md#block-provenance).
 
-Extraction is the slow, paid step and it's cached. Questions are the fast, cheap step and they're
-not. That split is what lets you iterate on a pack against a folder of documents interactively.
+Extraction is the slow, paid step and it's cached. Questions are the fast, cheap step (not cached). That split is what lets you iterate on a pack against a folder of documents interactively.
 
 ## Pull fields out, and check them
 

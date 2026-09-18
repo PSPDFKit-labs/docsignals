@@ -43,6 +43,8 @@ Ask typed questions of your documents. Get structured signals for agentic workfl
 ![Node 20+](https://img.shields.io/badge/node-20%2B-339933?style=for-the-badge&logo=node.js&logoColor=white)
 ![Status: early release](https://img.shields.io/badge/status-early%20release-orange?style=for-the-badge)
 
+![docsignals demo](assets/docsignals-demo.gif)
+
 ## The whole idea, in one screen
 
 You write the questions once, in a YAML **pack**. docsignals reads each document with
